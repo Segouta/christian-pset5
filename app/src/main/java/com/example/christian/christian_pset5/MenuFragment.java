@@ -1,5 +1,6 @@
 package com.example.christian.christian_pset5;
 
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -33,8 +34,8 @@ import java.util.List;
  */
 public class MenuFragment extends ListFragment {
 
-    List<String> menuGroups = new ArrayList<String>();
-    ArrayAdapter theAdapter;
+    List<Dish> menuGroups = new ArrayList<>();
+    MenuAdapter theAdapter;
     RestoDatabase restoDatabase;
 
     JSONArray group;
@@ -43,11 +44,12 @@ public class MenuFragment extends ListFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         RequestQueue queue = Volley.newRequestQueue(getActivity());
 
         String url = "https://resto.mprog.nl/menu";
         System.out.println("IN ON CREATE");
-        theAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, menuGroups);
+
         this.setListAdapter(theAdapter);
 
         restoDatabase = RestoDatabase.getInstance(getActivity().getApplicationContext());
@@ -66,7 +68,13 @@ public class MenuFragment extends ListFragment {
                             for (int i = 0; i < group.length(); i++){
                                 if (group.getJSONObject(i).getString("category").equals(category)) {
 
-                                    menuGroups.add(group.getJSONObject(i).getString("name"));
+                                    int id = group.getJSONObject(i).getInt("id");
+                                    String name = group.getJSONObject(i).getString("name");
+                                    String description = group.getJSONObject(i).getString("description");
+                                    int price = group.getJSONObject(i).getInt("price");
+                                    String image = group.getJSONObject(i).getString("image_url");
+
+                                    fillList(id, name, description, price, image);
                                 }
 
                             }
@@ -90,12 +98,13 @@ public class MenuFragment extends ListFragment {
         // Access the RequestQueue through your singleton class.
         queue.add(jsObjRequest);
 
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_menu, container, false);
     }
@@ -104,7 +113,12 @@ public class MenuFragment extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         float price = 0;
-        String name = l.getItemAtPosition(position).toString();
+
+//      hier gaat het ergens mis...
+
+        Dish dish = (Dish) l.getItemAtPosition(position);
+        String name = dish.getName();
+
         try {
             for (int i = 0; i < group.length(); i++) {
                 JSONObject item = group.getJSONObject(i);
@@ -122,6 +136,14 @@ public class MenuFragment extends ListFragment {
         restoDatabase.addItem(name, price);
     }
 
+    private void fillList(int id, String name, String description, int price, String image) {
 
+        menuGroups.add(new Dish(id, name, price, description, image));
+
+        theAdapter = new MenuAdapter(getActivity().getApplicationContext(), menuGroups);
+
+        this.setListAdapter(theAdapter);
+
+    }
 
 }
