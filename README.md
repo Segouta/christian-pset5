@@ -5,7 +5,7 @@ By:               Christian
 
 Student number:   11930683
 
-Date:             10-11-2017
+Date:             01-12-2017
 
 Subject:          Native App Studio UvA
 
