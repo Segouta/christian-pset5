@@ -51,13 +51,14 @@ public class MenuAdapter extends BaseAdapter {
     public View getView(int i, final View view, ViewGroup viewGroup) {
 
         View v = view.inflate(mContext, R.layout.row_menu, null);
-        Log.d("testview", v.toString());
 
         TextView entryText = v.findViewById(R.id.menuEntryText);
         TextView priceText = v.findViewById(R.id.menuPriceText);
+        TextView descText = v.findViewById(R.id.descText);
 
         entryText.setText(mProductList.get(i).getName());
-        priceText.setText(Integer.toString(mProductList.get(i).getPrice()));
+        descText.setText(mProductList.get(i).getDescription());
+        priceText.setText("€ " + Integer.toString(mProductList.get(i).getPrice()) + ",-");
 
         final ImageView imageView = v.findViewById(R.id.imageView);
 

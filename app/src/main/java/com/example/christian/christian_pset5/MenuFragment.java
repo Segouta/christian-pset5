@@ -114,8 +114,6 @@ public class MenuFragment extends ListFragment {
         super.onListItemClick(l, v, position, id);
         float price = 0;
 
-//      hier gaat het ergens mis...
-
         Dish dish = (Dish) l.getItemAtPosition(position);
         String name = dish.getName();
 
