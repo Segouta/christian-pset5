@@ -84,7 +84,7 @@ public class RestoDatabase extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             total = total + cursor.getFloat(priceCol) * cursor.getFloat(amountCol);
         }
-        return "€ " + total;
+        return "Total price: € " + total;
     }
 
     public void deleteItem(int id) {

@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#2a2a2a"
     tools:context="com.example.christian.christian_pset5.MenuFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -9,6 +10,12 @@
     <ListView
         android:id="@+id/android:list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="17dp"
+        android:background="#303030"
+        android:dividerHeight="17dp"
+        android:elevation="30dp" />
 
 </FrameLayout>

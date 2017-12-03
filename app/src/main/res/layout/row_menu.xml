@@ -9,33 +9,34 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="120dp">
 
         <TextView
             android:id="@+id/menuPriceText"
-            android:layout_width="87dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_width="100dp"
+            android:layout_height="47dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="112dp"
+            android:layout_marginTop="6dp"
             android:gravity="center_vertical"
             android:minHeight="?android:attr/listPreferredItemHeightSmall"
             android:rotation="-10"
             android:text="€15"
+            android:textAlignment="textEnd"
             android:textAppearance="?android:attr/textAppearanceListItemSmall"
-            android:textColor="#ff4d25"
+            android:textColor="#e7411b"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="@+id/menuEntryText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/menuEntryText"
-            app:layout_constraintVertical_bias="1.0" />
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/menuEntryText"
             android:layout_width="152dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-smallcaps"
             android:gravity="center_vertical"
             android:minHeight="?android:attr/listPreferredItemHeightSmall"
@@ -43,36 +44,49 @@
             android:paddingStart="?android:attr/listPreferredItemPaddingStart"
             android:text="Eten!"
             android:textAppearance="?android:attr/textAppearanceListItemSmall"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/menuPriceText"
-            app:layout_constraintHorizontal_bias="0.333"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.423" />
+            android:textColor="#a39491"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="151dp"
-            android:layout_height="122dp"
-            android:layout_marginBottom="8dp"
+            android:layout_width="170dp"
+            android:layout_height="0dp"
             android:contentDescription="Delicious!"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@mipmap/ic_launcher" />
 
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="170dp"
+            android:layout_height="0dp"
+            android:contentDescription="Gradient"
+            android:scaleType="fitXY"
+            android:src="@drawable/gradient"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/descText"
-            android:layout_width="240dp"
+            android:layout_width="215dp"
             android:layout_height="64dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="12dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
             android:text="TextView"
+            android:textColor="#b38a83"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/menuEntryText" />
+            app:layout_constraintStart_toEndOf="@+id/imageView2" />
+
+
 
     </android.support.constraint.ConstraintLayout>
 

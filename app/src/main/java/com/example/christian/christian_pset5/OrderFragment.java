@@ -1,8 +1,11 @@
 package com.example.christian.christian_pset5;
 
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
@@ -42,6 +45,7 @@ public class OrderFragment extends DialogFragment implements View.OnClickListene
         orderButton = v.findViewById(R.id.orderButton);
 
         orderList.setOnItemLongClickListener(new ClickSomeLong());
+        orderList.setOnItemClickListener(new ClickSome());
         cancelButton.setOnClickListener(this);
         orderButton.setOnClickListener(this);
 
@@ -69,9 +73,29 @@ public class OrderFragment extends DialogFragment implements View.OnClickListene
                 getDialog().dismiss();
                 break;
             case R.id.orderButton:
-                restoDatabase.clear();
-                getDialog().dismiss();
-                mListener.onFragmentInteraction();
+                AlertDialog.Builder builder;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    builder = new AlertDialog.Builder(getContext(), android.R.style.Theme_Material_Dialog_Alert);
+                } else {
+                    builder = new AlertDialog.Builder(getContext());
+                }
+                builder.setTitle("Are you sure?")
+                        .setMessage("Are you sure you want to order this?")
+                        .setPositiveButton("Yes, order!", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                restoDatabase.clear();
+                                getDialog().dismiss();
+                                mListener.onFragmentInteraction();
+                            }
+                        })
+                        .setNegativeButton("Back", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // do nothing
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_popup_reminder)
+                        .show();
+
                 break;
         }
     }
@@ -83,6 +107,14 @@ public class OrderFragment extends DialogFragment implements View.OnClickListene
             restoDatabase.deleteItem((int) id);
             updateList();
             return true;
+        }
+    }
+
+    private class ClickSome implements AdapterView.OnItemClickListener {
+        @Override
+        public void onItemClick(final AdapterView<?> parent, View view, int position, long id) {
+            restoDatabase.deleteItem((int) id);
+            updateList();
         }
     }
 

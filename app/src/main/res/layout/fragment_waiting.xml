@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_order"
     tools:context="com.example.christian.christian_pset5.WaitingFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -12,14 +13,16 @@
 
         <TextView
             android:id="@+id/waitingText"
-            android:layout_width="155dp"
-            android:layout_height="55dp"
+            android:layout_width="254dp"
+            android:layout_height="291dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
+            android:gravity="center"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Waiting time:"
+            android:text="Calculating waiting time..."
             android:textAlignment="center"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -2,6 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/gradient_order"
     android:layout_height="match_parent"
     tools:context="com.example.christian.christian_pset5.OrderFragment">
 
@@ -15,29 +16,34 @@
             android:id="@+id/orderList"
             android:layout_width="395dp"
             android:layout_height="300dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
+            android:dividerHeight="10dp"
+            android:footerDividersEnabled="true"
+            android:headerDividersEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <TextView
             android:id="@+id/textView"
+            android:paddingBottom="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Your Order"
             android:textAlignment="center"
+            android:textColor="#ffffff"
             android:textSize="30sp" />
 
         <Button
             android:id="@+id/cancelButton"
-            android:layout_width="94dp"
-            android:layout_height="36dp"
+            android:layout_width="143dp"
+            android:layout_height="30dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="cancel"
+            android:background="@drawable/button_cancel"
+            android:text="Return to menu"
+            android:textColor="#be0000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -47,46 +53,38 @@
 
         <Button
             android:id="@+id/orderButton"
-            android:onClick="orderClicked"
             android:layout_width="337dp"
             android:layout_height="57dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:background="@drawable/button_accept"
+            android:elevation="30dp"
+            android:onClick="orderClicked"
             android:text="place order"
+            android:textColor="#006b09"
+            android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cancelButton" />
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:id="@+id/totalText"
+            android:layout_width="385dp"
+            android:layout_height="43dp"
+            android:layout_marginBottom="15dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Total price: "
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/cancelButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.237"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/orderList"
-            app:layout_constraintVertical_bias="0.444" />
-
-        <TextView
-            android:id="@+id/totalText"
-            android:layout_width="182dp"
-            android:layout_height="40dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/cancelButton"
-            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/orderList" />
     </android.support.constraint.ConstraintLayout>
 
