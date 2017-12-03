@@ -7,6 +7,7 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+// this is the database organiser
 public class RestoDatabase extends SQLiteOpenHelper {
 
     private static RestoDatabase instance = null;
@@ -22,6 +23,7 @@ public class RestoDatabase extends SQLiteOpenHelper {
 
     }
 
+    // create the table
     @Override
     public void onCreate (SQLiteDatabase db){
         String createTable = "CREATE TABLE " + TABLE_NAME + " (" + COL1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL2 + " TEXT, " + COL3 + " FLOAT," + COL4 + " INTEGER);";
@@ -29,6 +31,7 @@ public class RestoDatabase extends SQLiteOpenHelper {
 
     }
 
+    // make it singleton
     public static RestoDatabase getInstance(Context context) {
         if (instance == null) {
             instance = new RestoDatabase(context);
@@ -36,6 +39,7 @@ public class RestoDatabase extends SQLiteOpenHelper {
         return instance;
     }
 
+    // check if exists
     @Override
     public void onUpgrade (SQLiteDatabase db,int oldVersion, int newVersion){
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
@@ -43,6 +47,7 @@ public class RestoDatabase extends SQLiteOpenHelper {
 
     }
 
+    // return order
     public Cursor getOrder() {
         SQLiteDatabase db = this.getWritableDatabase();
         String all = "SELECT * FROM " + TABLE_NAME;
@@ -50,11 +55,13 @@ public class RestoDatabase extends SQLiteOpenHelper {
         return entries;
     }
 
+    // clear all
     public void clear() {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_NAME);
     }
 
+    // add item that is inputted
     public void addItem(String name, float price) {
         System.out.println("name: " + name);
         System.out.println(price);
@@ -74,6 +81,7 @@ public class RestoDatabase extends SQLiteOpenHelper {
         db.execSQL(command);
     }
 
+    // return total price for in order overview
     public String totalPrice() {
         int priceCol = 2;
         int amountCol = 3;
@@ -87,6 +95,7 @@ public class RestoDatabase extends SQLiteOpenHelper {
         return "Total price: € " + total;
     }
 
+    // delete certain item
     public void deleteItem(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         String command = "DELETE FROM " + TABLE_NAME + " WHERE " + COL1 + " = '" + id + "';";

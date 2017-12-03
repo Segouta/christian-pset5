@@ -12,6 +12,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements OrderFragment.OnFragmentInteractionListener {
 
+    // start first fragment
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements OrderFragment.OnF
         ft.commit();
     }
 
+    // inflate the options menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements OrderFragment.OnF
         return super.onCreateOptionsMenu(menu);
     }
 
+    // check if the action bar icon is pressed and show order
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements OrderFragment.OnF
         return super.onOptionsItemSelected(item);
     }
 
+    // code for opening dialog fragments correctly
     @Override
     public void onFragmentInteraction() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

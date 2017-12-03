@@ -33,6 +33,7 @@ public class OrderFragment extends DialogFragment implements View.OnClickListene
     Button cancelButton, orderButton;
     private OnFragmentInteractionListener mListener;
 
+    // set textviews
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -66,6 +67,7 @@ public class OrderFragment extends DialogFragment implements View.OnClickListene
         updateList();
     }
 
+    // show alert when clicking
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -100,6 +102,7 @@ public class OrderFragment extends DialogFragment implements View.OnClickListene
         }
     }
 
+    // implements longclick
     private class ClickSomeLong implements AdapterView.OnItemLongClickListener {
         @Override
         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -110,6 +113,7 @@ public class OrderFragment extends DialogFragment implements View.OnClickListene
         }
     }
 
+    // clicking on items
     private class ClickSome implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(final AdapterView<?> parent, View view, int position, long id) {
@@ -118,6 +122,7 @@ public class OrderFragment extends DialogFragment implements View.OnClickListene
         }
     }
 
+    // updating the list when something was added or deleted
     public void updateList() {
         restoDatabase = RestoDatabase.getInstance(getActivity().getApplicationContext());
 
@@ -135,6 +140,7 @@ public class OrderFragment extends DialogFragment implements View.OnClickListene
 
     }
 
+    // setting the fragments
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);

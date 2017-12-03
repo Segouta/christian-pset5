@@ -31,9 +31,11 @@ public class CategoriesFragment extends ListFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // setting adapter
         theAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, menuGroups);
         this.setListAdapter(theAdapter);
 
+        // requesting info for categories
         RequestQueue queue = Volley.newRequestQueue(getActivity());
 
         String url = "https://resto.mprog.nl/categories";
@@ -71,6 +73,7 @@ public class CategoriesFragment extends ListFragment {
 
     }
 
+    // when clicked, start next fragment
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);

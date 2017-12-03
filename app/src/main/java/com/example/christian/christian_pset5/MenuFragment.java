@@ -118,6 +118,7 @@ public class MenuFragment extends ListFragment {
         super.onListItemClick(l, v, position, id);
         float price = 0;
 
+        // get dish
         Dish dish = (Dish) l.getItemAtPosition(position);
         final String name = dish.getName();
 
@@ -135,6 +136,7 @@ public class MenuFragment extends ListFragment {
             System.out.println("That did not work...");
         }
 
+        // alert dialog for adding
         AlertDialog.Builder builder;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             builder = new AlertDialog.Builder(getContext(), android.R.style.Theme_Material_Dialog_Alert);
@@ -160,6 +162,7 @@ public class MenuFragment extends ListFragment {
 
     }
 
+    // fill list with found items
     private void fillList(int id, String name, String description, int price, String image) {
 
         menuGroups.add(new Dish(id, name, price, description, image));

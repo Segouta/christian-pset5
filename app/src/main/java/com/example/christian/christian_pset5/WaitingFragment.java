@@ -24,7 +24,7 @@ import org.json.JSONObject;
 public class WaitingFragment extends DialogFragment {
 
 
-
+    // retrieve the random waiting waiting time and set the text
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

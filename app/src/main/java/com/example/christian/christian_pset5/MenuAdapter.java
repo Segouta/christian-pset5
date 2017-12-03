@@ -21,7 +21,7 @@ import com.android.volley.toolbox.Volley;
 
 import java.util.List;
 
-
+// setting the adapter for menu items
 public class MenuAdapter extends BaseAdapter {
 
     private Context mContext;
@@ -47,6 +47,7 @@ public class MenuAdapter extends BaseAdapter {
         return i;
     }
 
+    // set all views correctly
     @Override
     public View getView(int i, final View view, ViewGroup viewGroup) {
 

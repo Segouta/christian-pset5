@@ -1,5 +1,7 @@
 package com.example.christian.christian_pset5;
 
+// custom dish class to store more then just the name of a dish
+
 public class Dish {
     private int id;
     private String name;

@@ -13,6 +13,7 @@ public class RestoAdapter extends ResourceCursorAdapter {
         super(context, R.layout.row_order, cursor, 0);
     }
 
+    // setting al values correctly in the right textviews
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
 
